@@ -5,10 +5,13 @@
 	"author": "Liam Doherty",
 	"main": "lzo",
 	"scripts": {
-       "install": "node-waf configure build"
+       "install": "node-gyp configure build"
 	},
 	"engines": {
 		"node": ">=0.4.0"
+	},
+	"dependencies": {
+		"node-gyp": "~1.0.2"
 	},
 	"licenses": [
 		{
