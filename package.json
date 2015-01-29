@@ -5,17 +5,10 @@
 	"author": "Liam Doherty",
 	"main": "lzo",
 	"scripts": {
-       "install": "node-gyp configure build"
+		"install": "node-gyp configure build"
 	},
 	"engines": {
-		"node": ">=0.4.0"
+		"node": "0.10.x"
 	},
-	"dependencies": {
-		"node-gyp": "~1.0.2"
-	},
-	"licenses": [
-		{
-			"type": "MIT"
-		}
-	]
+	"license": "MIT"
 }
