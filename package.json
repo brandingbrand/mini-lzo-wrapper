@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"description": "A very low-level wrapper around the minilzo fast compression library",
 	"author": "Liam Doherty",
-	"main": "build/Release/lzo",
+	"main": "build/Release/lzo.node",
 	"scripts": {
 		"install": "node-gyp configure build"
 	},
