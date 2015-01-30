@@ -3307,7 +3307,7 @@ DO_COMPRESS      ( const lzo_bytep in , lzo_uint  in_len,
 
 #if defined(DO_DECOMPRESS)
 LZO_PUBLIC(int)
-DO_DECOMPRESS  ( const lzo_bytep in , lzo_uint  in_len,
+DO_DECOMPRESS  ( const lzo_bytep in , lzo_uintp  in_len,
                        lzo_bytep out, lzo_uintp out_len,
                        lzo_voidp wrkmem )
 #endif
@@ -3322,7 +3322,7 @@ DO_DECOMPRESS  ( const lzo_bytep in , lzo_uint  in_len,
     register const lzo_bytep m_pos;
 #endif
 
-    const lzo_bytep const ip_end = in + in_len;
+    const lzo_bytep const ip_end = in + *in_len;
 #if defined(HAVE_ANY_OP)
     lzo_bytep const op_end = out + *out_len;
 #endif
@@ -3675,6 +3675,7 @@ match_next:
 
 eof_found:
     assert(t == 1);
+    *in_len = pd(ip, in);
     *out_len = pd(op, out);
     return (ip == ip_end ? LZO_E_OK :
            (ip < ip_end  ? LZO_E_INPUT_NOT_CONSUMED : LZO_E_INPUT_OVERRUN));
@@ -3795,7 +3796,7 @@ lookbehind_overrun:
 
 #if defined(DO_DECOMPRESS)
 LZO_PUBLIC(int)
-DO_DECOMPRESS  ( const lzo_bytep in , lzo_uint  in_len,
+DO_DECOMPRESS  ( const lzo_bytep in , lzo_uintp  in_len,
                        lzo_bytep out, lzo_uintp out_len,
                        lzo_voidp wrkmem )
 #endif
@@ -3810,7 +3811,7 @@ DO_DECOMPRESS  ( const lzo_bytep in , lzo_uint  in_len,
     register const lzo_bytep m_pos;
 #endif
 
-    const lzo_bytep const ip_end = in + in_len;
+    const lzo_bytep const ip_end = in + *in_len;
 #if defined(HAVE_ANY_OP)
     lzo_bytep const op_end = out + *out_len;
 #endif
@@ -4163,6 +4164,7 @@ match_next:
 
 eof_found:
     assert(t == 1);
+    *in_len = pd(ip, in);
     *out_len = pd(op, out);
     return (ip == ip_end ? LZO_E_OK :
            (ip < ip_end  ? LZO_E_INPUT_NOT_CONSUMED : LZO_E_INPUT_OVERRUN));

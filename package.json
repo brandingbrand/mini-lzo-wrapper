@@ -1,14 +1,26 @@
 {
-	"name": "mini-lzo-wrapper",
-	"version": "0.1.0",
-	"description": "A very low-level wrapper around the minilzo fast compression library",
-	"author": "Liam Doherty",
-	"main": "build/Release/lzo.node",
-	"scripts": {
-		"install": "node-gyp configure build"
-	},
-	"engines": {
-		"node": "0.10.x"
-	},
-	"license": "MIT"
+  "name": "mini-lzo-wrapper",
+  "version": "0.1.3",
+  "description": "A very low-level wrapper around the minilzo fast compression library",
+  "author": "Liam Doherty",
+	"repository": {
+    "type": "git",
+    "url": "git://github.com/morhaus/mini-lzo-wrapper.git"
+  },
+  "main": "index.js",
+
+  "scripts": {
+    "test": "node test/lzo-compress-decompress.js"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "bindings": "~1.1.1"
+  }
 }
